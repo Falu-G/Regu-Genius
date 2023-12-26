@@ -1,0 +1,153 @@
+{
+    "AccessToBuildingOtherThanDwellingsM1/M2": {
+        "Objectives": {
+            "RampedAccess": {
+                "Provisions": {
+                    "rules": [
+                        {
+                            "rule": "RampedAccessSatisfyRequirementM1/M2",
+                            "operator": "==",
+                            "value": true,
+                            "conditions": [
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "ReadilyApparent",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "||",
+                                    "condition": {
+                                        "rule": "ApproachToRampClearlySignPosted",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "GradientOfRampFlightAndItsGoingBetweenLandings",
+                                        "operator": "==",
+                                        "value": "Table1AndDiagram3"
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "NoFlightGoing",
+                                        "operator": "<=",
+                                        "value": "10m"
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "NoFlightRise",
+                                        "operator": ">=",
+                                        "value": "500mm"
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "AlternativeMeansOfAccessForWheelChairUsers",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "SurfaceWidthBetweenWallsUpstandsOrKerbs",
+                                        "operator": ">=",
+                                        "value": "1.5m"
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "RampSurfaceIsSlipResistant",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "RampSurfaceColorContrastWithLanding",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "FrictionalCharacteristicsOfRampAndLandingSurfaces",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "LandingAtFootAndHeadOfRamp",
+                                        "operator": ">=",
+                                        "value": "1.2m"
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "IntermediateLandings",
+                                        "operator": ">=",
+                                        "value": "1.5m"
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "IntermediateLandingsWidthAndLength",
+                                        "operator": "==",
+                                        "value": [
+                                            "1800mm",
+                                            "1800mm"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "AllLandingsAreLevel",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "HandRailOnBothSides",
+                                        "operator": "==",
+                                        "value": true
+                                    }
+                                },
+                                {
+                                    "operator": "&&",
+                                    "condition": {
+                                        "rule": "KerbOnOpenSideOfRampOrLanding",
+                                        "operator": "==",
+                                        "value": [
+                                            "100mm",
+                                            "VisuallyContrastWithRampOrLanding"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

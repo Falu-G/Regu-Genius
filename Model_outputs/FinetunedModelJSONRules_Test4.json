@@ -1,0 +1,89 @@
+{
+    "GeneralProvisionsForMeansOfEscape": {
+        "MechanicalVentilationAndAirConditioningSystems": {
+            "rules": [
+                {
+                    "rule": "SystemOfMechanicalVentilationDesignedToEnsure",
+                    "operator": "==",
+                    "value": [
+                        "FireBreakOut",
+                        "DuctworkDoesNotAssistInTransferringFireAndSmokeThroughBuilding"
+                    ]
+                },
+                {
+                    "rule": "ExhaustPointsSited",
+                    "operator": "!=",
+                    "value": [
+                        "JeopardizeBuilding"
+                    ]
+                },
+                {
+                    "rule": "VentilationDuctsSupplyingOrExtractingAirDirectlyToOrFromProtectedEscapeRoute",
+                    "operator": "!=",
+                    "value": [
+                        "ServeOtherAreas"
+                    ]
+                },
+                {
+                    "rule": "SeparateVentilationSystemProvidedFor",
+                    "operator": "==",
+                    "value": [
+                        "EachProtectedStairway"
+                    ]
+                },
+                {
+                    "rule": "DuctworkSystemServesMoreThanOnePartOfSubDividedEscapeRoute",
+                    "operator": "==",
+                    "value": [
+                        "FireAndSmokeDamperProvidedWhereDuctworkEntersEachSectionOfEscapeRoute"
+                    ]
+                },
+                {
+                    "rule": "FireAndSmokeDamperOperatedBy",
+                    "operator": "==",
+                    "value": [
+                        "SmokeDetector",
+                        "SuitableFireDetectionSystem"
+                    ]
+                },
+                {
+                    "rule": "FireDampersShouldCloseWhen",
+                    "operator": "==",
+                    "value": [
+                        "SmokeDetected"
+                    ]
+                },
+                {
+                    "rule": "SystemRecirculatesAir",
+                    "operator": "==",
+                    "value": [
+                        "SmokeDetectorsFittedInExtractDuctworkBeforePointOfSeparationOfRecirculatedAirAndDischargeToOpenAir",
+                        "BeforeAnyFiltersOrOtherAirCleaningEquipment"
+                    ]
+                },
+                {
+                    "rule": "SystemRecirculatesAir",
+                    "operator": "==",
+                    "value": [
+                        "SystemShutDownImmediately"
+                    ]
+                },
+                {
+                    "rule": "MechanicalVentilation",
+                    "operator": "==",
+                    "value": [
+                        "ShutDownAsSoonAsSmokeDetectedInDuct",
+                        "UponOperationOfFireAlarm"
+                    ]
+                },
+                {
+                    "rule": "NonDomesticKitchensAndPlantRoomsHaveSeparateAndIndependentExtractionSystems",
+                    "operator": "==",
+                    "value": [
+                        "ExtractedAirNotRecirculated"
+                    ]
+                }
+            ]
+        }
+    }
+}

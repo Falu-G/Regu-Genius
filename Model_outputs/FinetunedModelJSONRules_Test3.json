@@ -1,0 +1,73 @@
+{
+    "GeneralProvisionsForMeansOfEscape": {
+        "ProtectionOfEscapeRoutes": {
+            "FireResistanceOfEnclosures": {
+                "rules": [
+                    {
+                        "rule": "WallsPartitionsAndOtherEnclosures",
+                        "operator": "==",
+                        "value": "FireResisting",
+                        "conditions": [
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "RoofsThatFormPartOfMeansOfEscape",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "rule": "AppropriatePerformance",
+                        "operator": "==",
+                        "value": "AppendixBofADB"
+                    }
+                ]
+            },
+            "FireResistanceOfDoors": {
+                "rules": [
+                    {
+                        "rule": "FireResisting",
+                        "operator": "==",
+                        "value": true
+                    }
+                ]
+            },
+            "FireResistanceOfGlazedElements": {
+                "rules": [
+                    {
+                        "rule": "FireResistingEnclosuresAndDoors",
+                        "operator": "==",
+                        "value": true,
+                        "conditions": [
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "RelevantPerformanceInTermsOfIntegrity",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "rule": "RelevantPerformanceCanBeMetInTermsOfIntegrityAndInsulation",
+                        "operator": "==",
+                        "value": true,
+                        "conditions": [
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "RestrictionOnUseOrAmountOfGlass",
+                                    "operator": "==",
+                                    "value": false
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

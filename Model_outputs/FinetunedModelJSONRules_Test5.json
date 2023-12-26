@@ -1,0 +1,75 @@
+{
+    "FacilitiesInBuildingsOtherThanDwellingsM1": {
+        "Objectives": {
+            "AudienceAndSpectatorFacilities": {
+                "rules": [
+                    {
+                        "rule": "RouteToWheelChairSpacesIsAccessibleByWheelChairUsers",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "SteppedAccessRoutesToAudienceSeatingAreProvidedWithFixedHandRails",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "MinimumNumberOfPermanentAndRemovableSpacesProvidedForWheelChairUsers",
+                        "operator": "==",
+                        "value": "Table3"
+                    },
+                    {
+                        "rule": "WheelChairSpacesProvidedInPairsWithStandardSeatingOnAtLeastOneSide",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "MoreThanTwoWheelChairSpacesAreProvided",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "MinimumClearSpaceProvidedForAccessToWheelChairSpaces",
+                        "operator": "==",
+                        "value": "900mm"
+                    },
+                    {
+                        "rule": "ClearSpaceAllowanceForAnOccupiedWheelChairInAParkedPosition",
+                        "operator": "==",
+                        "value": "900mmWideBy1400mmDeep"
+                    },
+                    {
+                        "rule": "FloorOfEachWheelChairSpaceIsHorizontal",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "SomeSeatsAreLocatedSoThatAnAssistanceDogCanAccompanyItsOwnerAndRestInFrontOfOrUnderTheSeat",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "StandardSeatsAtTheEndsOfRowsAndNextToWheelChairSpacesHaveDetachableOrLiftUpArms",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "WheelChairSpacesAtTheBackOfASteppedTerracedFloorAreProvidedInAccordanceWithDiagram14Or15",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "WheelChairUsersHaveAccessToPodiumOrStageByMeansOfRampOrLiftingPlatform",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "HearingEnhancementSystemInAccordanceWith4.36IsProvidedForPeopleWithImpairedHearing",
+                        "operator": "==",
+                        "value": true
+                    }
+                ]
+            }
+        }
+    }
+}

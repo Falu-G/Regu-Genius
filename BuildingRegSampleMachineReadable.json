@@ -1,0 +1,2186 @@
+{
+    "Objects": [
+        {
+            "InternalDoor": {
+                "whereNeededTobeOpenedManually": {
+                    "rules": [
+                        {
+                            "rule": "OpeningForce0_30AtLeadingEdge",
+                            "operator": "<=",
+                            "value": "30N"
+                        },
+                        {
+                            "rule": "OpeningForce30_60AtLeadingEdge",
+                            "operator": "<=",
+                            "value": "22.5N"
+                        },
+                        {
+                            "rule": "UnObstructedSpaceBetweenLeadingEdgeAndAnyReturnWall",
+                            "operator": "<=",
+                            "value": "300mm",
+                            "conditions": [
+                                {
+                                    "operator": "!",
+                                    "condition": {
+                                        "objectTypes": [
+                                            "PoweredControlOpener"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "operator": "!",
+                                    "condition": {
+                                        "rule": "ConnectsTo",
+                                        "objectTypes": [
+                                            "HotelBedRoom"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "whereFittedwithaLatch": {
+                    "rules": {}
+                }
+            }
+        },
+        {  "VariationsAndSpecialProvisions":
+            { "Walls": {
+                "rules": [
+                    {
+                        "rule": "NotPoorerThanClassD-s3",
+                        "operator": "!",
+                        "value": "ClassD-s3,d2",
+                        "conditions": [
+                            {
+                                "condition": {
+                                    "rule": "TotalAreaofThosePartsInAnyRoom",
+                                    "operator": "<=",
+                                    "value": "50%",
+                                    "objectTypes": [
+                                        "floorArea"
+                                    ],
+                                    "conditions": [
+                                        {
+                                            "condition": {
+                                                "operator": "<=",
+                                                "value": "60m2"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "Noticeboards": {
+                    "InTeachingSpaces": {
+                        "rules": [
+                            {
+                                "rule": "length",
+                                "operator": "<=",
+                                "value": "2.5",
+                                "conditions": [
+                                    {
+                                        "operator": "!",
+                                        "condition": {
+                                            "rule": "DistanceToClosestNoticeBoard",
+                                            "operator": ">=",
+                                            "value": "0.4m"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "rule": "locatedAwayFromSourcesofIgnition",
+                                "operator": "==",
+                                "value": true
+                            },
+                            {
+                                "rule": "NoticedBoardTotalArea",
+                                "operator": "<=",
+                                "value": "20%",
+                                "objectTypes": [
+                                    "Wall"
+                                ],
+                                "conditions": [
+                                    {
+                                        "operator": "||",
+                                        "condition": {
+                                            "rule": "NoticedBoardTotalArea",
+                                            "operator": "<=",
+                                            "value": "50%",
+                                            "objectTypes": [
+                                                "Wall"
+                                            ],
+                                            "conditions": [
+                                                {
+                                                    "condition": {
+                                                        "rule": "SprinklersAreInstalled",
+                                                        "operator": "==",
+                                                        "value": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "operator": "&&",
+                                        "condition": {
+                                            "rule": "NoticedBoardTotalArea",
+                                            "operator": "<=",
+                                            "value": "60m2"
+                                        }
+                                    },
+                                    {
+                                        "operator": "&&",
+                                        "condition": {
+                                            "rule": "NoticedBoardTotalArea",
+                                            "operator": ">",
+                                            "value": "1m2",
+                                            "conditions": [
+                                                {
+                                                    "condition": {
+                                                        "rule": "FireTested",
+                                                        "operator": "==",
+                                                        "value": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "InCorridors": {
+                        "rules": [
+                            {
+                                "rule": "CoveredBy",
+                                "operator": "IN",
+                                "objectTypes": [
+                                    "glass",
+                                    "polycarbornate"
+                                ]
+                            },
+                            {
+                                "rule": "length",
+                                "operator": "<=",
+                                "value": "3m"
+                            },
+                            {
+                                "rule": "DistanceToClosestNoticeBoard",
+                                "operator": ">=",
+                                "value": "1m"
+                            }
+                        ]
+                    },
+                    "CirculationAreasOnEscapeRoute": {
+                        "rules": [
+                            {
+                                "rule": "CoveredBy",
+                                "operator": "IN",
+                                "objectTypes": [
+                                    "glass",
+                                    "polycarbornate"
+                                ]
+                            },
+                            {
+                                "rule": "length",
+                                "operator": "<=",
+                                "value": "3m"
+                            },
+                            {
+                                "rule": "DistanceToClosestNoticeBoard",
+                                "operator": ">=",
+                                "value": "1m"
+                            }
+                        ]
+                    }
+                }
+                },
+                "RoofLights":{
+                    "rules":[
+                        {
+                            "rule":"NonPlasticRoofLightsMeetClassificationIn",
+                            "operator":"==",
+                            "value":"Table7"
+                        },
+                        {
+                            "rule":"PlasticRoofLightsWith",
+                            "operator":">=",
+                            "value":" ClassD-s3,d2Rating",
+                            "conditions":[
+                                {"operator":"&&",
+                                "condition":{
+                                    "rule":"HigherStandardIsCalledFor",
+                                    "operator":"==",
+                                    "value":true
+                                }
+                            },
+                            {"operator":"&&",
+                                "condition":{
+                                    "rule":"LimitationInTable8andTable17",
+                                    "operator":"==",
+                                    "value":"Observed"
+                                }
+                            }
+                            ]
+
+                        }
+
+                    ]
+                }
+            }
+        },
+        {
+            "ThermoplasticMaterials":{
+                "WindowsAndInternalGlazing":{
+                    "rules":[
+                        {
+                            "rule": "ExternalWindowsToRooms",
+                            "operator":"==",
+                            "value":"GlazedWithThermoplasticMatierials",
+                            "conditions": [
+                                {
+                                    "condition":{
+                                        "rule": "ToCirculationSpace",
+                                        "operator": "!"
+                                    }
+                                },
+                                {
+                                    "operator":"&&",
+                                    "condition":{
+                                        "rule": "isTP(a)RegidProduct",
+                                        "operator": "==",
+                                        "value":true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "rule":"InternalGlazing",
+                            "operator":"==",
+                            "value": "ProvisionInTable7"
+                        }
+                    ]
+                },
+                "RoofLights":{
+                    "rules":[
+                        {
+                            "rule":"ToRoomsAndCirculationSpaces",
+                            "operator":"==",
+                            "value": "ThermoplasticMaterial",
+                            "conditions":[
+                                { 
+                                    "operator":"&&",
+                                    "condition":{
+                                        "rule":"ProtectedStairWays",
+                                        "operator":"!"
+                                    }
+                                },
+                                {
+                                    "operator":"&&",
+                                    "condition":{
+                                        "rule":"LowerSurface",
+                                        "operator":"IN",
+                                        "value": ["TP(a)(rigid)", "TP(b)"]
+                                    } 
+                                },
+                                {
+                                    "operator":"&&",
+                                    "condition":{
+                                        "rule":"SizeAndDisposition",
+                                        "operator":"==",
+                                        "value": "LimitsInTable8"
+                                    } 
+                                }
+                            ]
+                        }
+
+                    ]
+                },
+                "LightingDiffusers":{
+                    "rules":[{
+                        "rule":"CeilingToRoomAndCirculationSpaces",
+                        "operator":"==",
+                        "value": "ThermoplasticLightingDiffusers",
+                        "conditions":[
+                            { 
+                                "operator":"&&",
+                                "condition":{
+                                    "rule":"ProtectedStairWays",
+                                    "operator":"!"
+                                }
+                            },
+                            {
+                                "operator":"&&",
+                                "condition":{
+                                    "rule":"ExposedWithintheSpaceAboveSuspenedCelling",
+                                    "operator":"==",
+                                    "value":"GeneralProvisionOfThisSectionandTable7",
+                                    "conditions":[
+                                        {"operator":"&&",
+                                            "condition":{
+                                                "rule":"UpperSurfacesOfThethermoplasticPannels",
+                                                "operator":"!"
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                            "condition":{
+                                                "rule":"Diffusers",
+                                                "operator":"!",
+                                                "value": "TP(a)(rigid)"
+                                            }
+                                        }     
+                                    ]
+                                } 
+                            },
+                            {
+                                "operator":"&&",
+                                "condition":{
+                                    "rule":"DiffusersOfTP(b)",
+                                    "operator":"==",
+                                    "value": "LimitsInTable8AndFigure8"
+                                } 
+                            }
+                        ]    
+                    }]
+                },
+                "FireResistance":{}
+            }
+        },
+        {
+            "PathwayAroundFireSeperatingElements":{
+                "JunctionsAndCavityClosures": {
+                    "rules":[
+                        {
+                            "rule":"CavityBariersShouldBeProvided",
+                            "operator":"==",
+                            "value": true,
+                            "conditions":[
+                                {
+                                        "operator":"&&",
+                                        "condition":{
+                                        "rule":"ToCloseEdgesOfCavity",
+                                        "operator": "IN",
+                                        "value": ["windows", "doors", "entry/exitpoints"]
+                                    } 
+                                },
+                                {
+                                    "operator":"&&",
+                                    "condition":{
+                                    "rule":"AtJunctionBetweenyAn",
+                                    "operator": "IN",
+                                    "value": ["ExternalCavity", "CompartmentFloor", "CompartmentWall"],
+                                    "conditions":[
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                            "rule":"CavityComplies",
+                                            "operator": "==",
+                                            "value": "Figure12"
+                                        } 
+                                    }
+
+                                    ]
+                                } 
+                            },
+                            {
+                                "operator":"&&",
+                                "condition":{
+                                "rule":"AtJunctionBetweenyAn",
+                                "operator": "IN",
+                                "value": ["InternalCavity", "CompartmentFloor", "CompartmentWall"],
+                                "conditions":[
+                                    {
+                                        "operator":"&&",
+                                        "condition":{
+                                        "rule":"CavityComplies",
+                                        "operator": "==",
+                                        "value": "Figure12"
+                                    } 
+                                }
+
+                                ]
+                            } 
+                        }
+
+                            
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "ProvidingInformation":
+                {
+                    "Criterion5ProvisionForEnergyEfficientBuildingOperation":{
+                        "rules":[{
+                            "rule":"OwnerShouldbeProvidedWithSufficienInformation",
+                            "operator": "==",
+                            "value":["Building", "FixedBuildingServices", "MaintainanceRequirements"]
+                        }]
+                    },
+                    "BuildingLogBook":{
+                        "rules":[{
+                            "rule":"ProduceInformationFollowing",
+                            "operator":"==",
+                            "value":"GuidanceInCIBSETM31"
+
+                        },
+                        {
+                            "rule":"InformationShouldBePresentedIn",
+                            "operator":"==",
+                            "value":"TemplatesSimilarToTM31"
+                        },
+                        {
+                            "rule":"ShouldBeIncludedInLogBook",
+                            "operator":"==",
+                            "value":"DataUsedToCalculateTERandBER"
+                        },
+                        {
+                            "rule":"OccupierShouldbeProvided",
+                            "operator":"==",
+                            "value":"ReportGeneratedWithOnConstructionEnergyPerformanceCertificate"
+                        }
+                    ]
+                    }
+
+                }
+        },
+        {
+            "Regulation38":{
+                "SimpleBuildings":{
+                    "rules":[{
+                        "rule":"TheInformationThatShouldbeProvided",
+                        "operator":"==",
+                        "value":["ProtecetedEscapeRoutes", "FinalExits", "MusterPointsoutsideTheBuilding", "Compartmentation", "Separation", "CavityBarriers", "FireDoors", "EquiupedwithRelevantHardrwareLikePanicLocks","LocationOfSmokeandHeatDetectors","AlarmCallPoint","AlarmControlBoxes", "AlarmSounders", "FireSafetySignage", "EmergencyLighting", "FireExtinguishers", "DryOrWetFireMains","OtherFirefighting","AnyHigherRiskAreas","AssumptionsInDesignOfFireSafetyArrangementsRegardingTheManagementOfTheBuilding","DetailsAndSpecificationsOfAnyFireSafetySystemsProvided"]
+                    }]
+                },
+                "ComplexeBuildings":{
+                        "rules":[{
+                            "rule":"TheInformationThatShouldbeProvided",
+                            "operator":"==",
+                            "value":["TheFireSafetyStrategy","AllAssumptionsInTheDesignFireSafetySystems", "RiskAssessmentsOrRiskAnalysis","ProceduresForOperatingAndMaintainingAnyFireProtectionMeasures", "ActiveFireSafetyMeasuresIfIncluded","AllAssumptionsInTheDesignOfTheFireSafetyArrangementsRegarding","TheBuildingManagement","AnyHighRiskAreas","Hazards"]
+                        }]
+                    }
+            }
+        },
+        {
+            "InclusiveDesign": {
+                "OverallConsiderations": {
+                    "rules":[
+                        {
+                            "rule":"FlashingBeaconsAreRequired",
+                            "operator":"==",
+                            "value":["Toilets", "PlacesPeopleMayBeOnTheirOwn"]
+                        }
+                    ]
+                },
+                "HorizontalCirculation":{
+                    "Doors":{
+                        "OnEvacuationRoutes":{
+                            "MustBePulled":
+                            {"rules": [
+                                {"rule":"UnObstructedSpace",
+                                    "operator":"==",
+                                    "value":"300mm",
+                                    "conditions":[{   
+                                        "operator":"&&",
+                                         "condition":
+                                        {"rule":"BetweenLeadingEdgeAndReturnWall",
+                                        "operator":"==",
+                                        "value":true
+                                        }
+                                     }] 
+                                    }
+                                 ]
+                            },
+                        "rules":[{
+                                    "rule":"PossibleToOperateWithcloseFirst",
+                                    "operator":"==",
+                                    "value":true
+                                },{
+                                    "rule":"DoorFunitureIsVisuallyContrastwithDoor",
+                                    "operator":"==",
+                                    "value":true
+                                },
+                                { "rule":"DoorFrameIsVisuallyContrastwithSoroundingWall",
+                                 "operator":"==",
+                                 "value":true
+                                },
+                                { "rule":"ClearOpeneingWith",
+                                 "operator":"==",
+                                 "value":"RequirementSetOutinTable5"
+                                },
+                                { "rule":"EmergencyBreakGlassPannelAndDoorReleaseMountedFromFloorBetween",
+                                 "operator":"==",
+                                 "value":["1000mm", "1200mm"],
+                                 "conditions":[
+                                    {"condition": {
+                                        "rule":"DoorLeavesAndSidePannelWidth",
+                                        "operator":">",
+                                        "value":"450mm"
+                                    }
+                                },
+                                { "rule":"VisonPannelProvisionTowardLeadingEdgeOfDoor",
+                                 "operator":"==",
+                                 "value":true
+                                }
+                                 ]
+                                }
+                                
+                            ]
+
+                        }
+                    },
+                    "DoorClosers":{
+                        "rules":[
+                            {
+                                "rule":"ProvidedWhereEssential",
+                                "operator":"==",
+                                "value": true
+                            },
+                            {
+                                "rule":"OpeningForceAtLeadingEdge0_30",
+                                "operator":"<=",
+                                "value": "30N"
+                            },
+                            {
+                                "rule":"OpeningForceAtLeadingEdge30_60",
+                                "operator":"<=",
+                                "value": "22.5N"
+                            }
+                        ]
+                    }
+                },
+                "VerticalCirculatiom":{
+                    "Stairs":{
+                        "rules":[
+                            {"rule":"LandingAtTheTop",
+                             "operator":"==",
+                             "value": true
+                            },
+                            {
+                               "rule": "BottomOfTheSteps",
+                               "operator":"==",
+                               "value": true,
+                               "conditions":[
+                                    {
+                                        "condition":{
+                                            "rule":"UnobstructedLength",
+                                            "operator":">=",
+                                            "value":"1200mm"
+                                        }
+                                    }
+                               ]
+                            },
+                            {
+                                "rule":"NosingVisuallyContrastingWithMainStepToDepth",
+                                "operator":"==",
+                                "value":"55mm"
+                            },
+                            {
+                                "rule":"NosingProjectOverTreadBelow",
+                                "operator":">=",
+                                "value":"25mm"
+                            },
+                            {
+                                "rule":"MaximumRise",
+                                "operator":"==",
+                                "value":"160mm"
+                            },
+                            {
+                                "rule":"MinimumGoing",
+                                "operator":"==",
+                                "value":"280mm"
+                            },
+                            {
+                                "rule":"ContinousHandRailToEachSide",
+                                "operator":"==",
+                                "value":["Flight","Landings"]
+                            }
+                        ]
+                    },
+                    "Refuges":{
+                        "rules":[
+                            {
+                                "rule":"ProvidedWithEachProtectedStairwayLobby",
+                                "operator":"==",
+                                "value":true
+                            },
+                            {
+                                "rule":"EnableEffectiveAndAccessibleCommunication",
+                                "operator":"==",
+                                "value":true
+                            },
+                            {
+                                "rule":"Located",
+                                "operator": "!",
+                                "value":["Stairs", "EvacuationLifts"]
+                            },
+                            {
+                                "rule":"ProtectedFrom",
+                                "operator": "==",
+                                "value":["Smoke", "Fire"]
+                            },
+                            {
+                                "rule":"HasAcessibleSignageToIndicate",
+                                "operator": "==",
+                                "value":["RefugeArea", "SimpleInstructions"]
+                            },
+                            {
+                                "rule":"IncludeFoldDownChair",
+                                "operator": "==",
+                                "value":true
+                            },
+                            {
+                                "rule":"ReduceEscapeRouteWidth",
+                                "operator":"==",
+                                "value": false
+                            },
+                            {
+                                "rule":"ObstructFlowOfPeopleEscaping",
+                                "operator":"==",
+                                "value": false
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "ConservationOfFuelAndPowerInNewBuildingsOtherThanDwellings":{
+                "EnergyPerformanceCertificates":{
+                    "BuildingIsErected":{
+                        "rules":[
+                            {
+                                "rule":"PersonCarryingOutWorkMustGiveOwnerOfTheBuilding",
+                                "operator":"==",
+                                "value": "EnergyPerformanceCertificate"
+                            },
+                            {
+                                "rule":"NoticeToBCBThatCertificateAndRegistrationReferenceNoIsGiven",
+                                "operator":"==",
+                                "value": true
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "AccessIntoBuildingOtherThanDwellingsM1/M2":{
+                "Objectives":{
+                    "AccessibeEntraces":{
+                        "Provisions":{
+                            "rules":[
+                            {
+                                "rule":"AccessibleEntracesSatifiesRequirementM1orM2",
+                                "operator":"==",
+                                "value":true,
+                                "conditions":[
+                                   { "operator":"&&",
+                                     "condition":{
+                                        "rule":"ClearSignPostedIncoporatingInternationalSymbolOfAccessFromEdgeSite",
+                                        "operator":"==",
+                                        "value":true,
+                                        "conditions":[
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"EgdeOfSiteIsAccessible",
+                                                    "operator":"==",
+                                                    "value":true
+                                                }
+                                            }
+                                        ]
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"ClearSignPostedIncoporatingInternationalSymbolOfAccessFromPrinicipalEntrance",
+                                        "operator":"==",
+                                        "value":true,
+                                        "conditions":[
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"EgdeOfSiteIsAccessible",
+                                                    "operator":"==",
+                                                    "value":false
+                                                }
+                                            }
+                                        ]
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"EasilyIdentifiedFromOtherBuildingElementAndImmidiateEnviroonment",
+                                        "operator":"==",
+                                        "value":true
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"StructuralSupportsAtEntrance",
+                                        "operator":"!",
+                                        "value":"PresentAHazardForVisuallyImpairedPeople"
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"StructuralSupportsAtEntrance",
+                                        "operator":"!",
+                                        "value":"PresentAHazardForVisuallyImpairedPeople"
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"LevelLanding",
+                                        "operator":">=",
+                                        "value":"1500 x 1500mm"
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"ClearOfAnyDoorSwing",
+                                        "operator":"==",
+                                        "value":true
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"ImmediatelyInFrontOfEntrance",
+                                        "operator":"==",
+                                        "value":true
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"MaterialDoesNotImpedeTheMovementOfWheelchairs",
+                                        "operator":"==",
+                                        "value":true
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"ThresholdIsLevel",
+                                        "operator":"==",
+                                        "value":true,
+                                        "conditions":[
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"ThresoldIsAvoidable",
+                                                    "operator":"==",
+                                                    "value":true
+                                                }
+                                            }
+                                        ]
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"HasTotalHeight",
+                                        "operator":"<=",
+                                        "value":"15mm",
+                                        "conditions":[
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"ThresoldIsAvoidable",
+                                                    "operator":"==",
+                                                    "value":false
+                                                }
+                                            },
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"MinimumNumberOfUpstandsAndSlopes",
+                                                    "operator":"==",
+                                                    "value":true
+                                                }
+                                            },
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"UpstandsHigherThan5mm",
+                                                    "operator":"==",
+                                                    "value":["Chamfered","Rounded"]
+                                                }
+                                            }
+                                        ]
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"AnyDoorEntrySystemAreAccessible",
+                                        "operator":"==",
+                                        "value":["Deaf","HardHearingPeople", "PeopleWhoCannotSpeak"]
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"InternalFloorSurfaceAdjacentToThresoldAreOfMAterial",
+                                        "operator":"!=",
+                                        "value":"ImpedeMovementOfWheelChair"
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"ChangesInFloorMaterials",
+                                        "operator":"!=",
+                                        "value":"CreateAPotentialTripHarzard"
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"MatSurfaceIsLevelWithSurfaceOfAdjacentFloorFinish",
+                                        "operator":"==",
+                                        "value":true,
+                                        "conditions":[
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"MatWellsProvided",
+                                                    "operator":"==",
+                                                    "value":true
+                                                }
+                                            }
+                                        ]
+                                     }
+                                    },
+                                    { "operator":"&&",
+                                     "condition":{
+                                        "rule":"AccessibleInternalRouteProvided",
+                                        "operator":"==",
+                                        "value":["SpacesServedByPrincipal", "MainStaffEntrances"],
+                                        "conditions":[
+                                            {
+                                                "operator":"&&",
+                                                "condition":{
+                                                    "rule":"AlternativeAccessibleEntrance",
+                                                    "operator":"==",
+                                                    "value":true
+                                                }
+                                            }
+                                        ]
+                                     }
+                                    }
+                                ]
+                            }
+                            ]
+                        }
+                    },
+                    "DoorsToAccessibleEntrances":{
+                        "Provisions":{
+                            "rules":[ 
+                                {
+                                    "rule":"DoorsToAccessibleEntracesSatifiesRequirementM1orM2",
+                                    "operator":"==",
+                                    "value":true,
+                                    "conditions":[
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"RequiredSelfClosing",
+                                            "operator":"==",
+                                            "value":"PowerOperatedDoorOpeningAndClosingSystem"
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"OpeningDoorForceAtLeadingEdge0_30",
+                                            "operator":"<=",
+                                            "value":"30N"
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"OpeningDoorForceAtLeadingEdge30_60",
+                                            "operator":"<=",
+                                            "value":"22.5Nat"
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"ClearWidthThroughaSingleLeafOrOneLeafOfDoubleLeafDoor",
+                                            "operator":"==",
+                                            "value":"Table2",
+                                            "conditions":[
+                                               { "operator": "&&",
+                                                 "condition":{
+                                                    "rule":"MeasurementAreInAccordanceTo",
+                                                    "operator":"==",
+                                                    "value": "Diagram9"
+                                                 }
+                                            }
+                                            ]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"InstalledInAccordanceWith",
+                                            "operator":"==",
+                                            "value":["ApprovedDocumentKInSection10"]
+                                         }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "ManuallyOperatedNonPoweredEntranceDoors":{
+                        "Provisions":{
+                            "rules":[
+                                {
+                                    "rule":"ManuallyOperatedNonPowerdEntranceDoorsSatifiesRequirementM1orM2",
+                                    "operator":"==",
+                                    "value":true,
+                                    "conditions":[
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"OpeningDoorForceAtLeadingEdge0_30",
+                                            "operator":"<=",
+                                            "value":"30N"
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"OpeningDoorForceAtLeadingEdge30_60",
+                                            "operator":"<=",
+                                            "value":"22.5N"
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"UnObstructedSpaceOnPullSideBetweenLeadingEdgeAndReturnWall",
+                                            "operator":">=",
+                                            "value":"300mm",
+                                            "conditions":[
+                                                {
+                                                    "operator":"&&",
+                                                    "condition":{
+                                                        "rule":"IsPoweredEntrance",
+                                                        "operator":"==",
+                                                        "value": false
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"DoorOpeningFurnitureCanBeOperatedWithOneHandUsingAClosedFist",
+                                            "operator":"==",
+                                            "value":true,
+                                            "conditions":[
+                                                {
+                                                    "operator":"&&",
+                                                    "condition":{
+                                                        "rule":"FittedWithLatch",
+                                                        "operator":"==",
+                                                        "value": true
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"AllDoorOpeningFunitureContrastVisiuallyWithSurfaceOfTheDoor",
+                                            "operator":"==",
+                                            "value":true,
+                                            "conditions":[
+                                                {
+                                                    "operator":"&&",
+                                                    "condition":{
+                                                        "rule":"NotColdtoTouch",
+                                                        "operator":"==",
+                                                        "value": true
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        }  
+                                    ]
+                                }  
+                            ]
+                        }
+                    },
+                    "PoweredEntranceDoors":{
+                        "Provisions":{
+                            "rules":[
+                                {
+                                    "rule":"PoweredEntranceDoorsSatifiesRequirementM1orM2",
+                                    "operator":"==",
+                                    "value":true,
+                                    "conditions":[
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"ActionControlled",
+                                            "operator":"==",
+                                            "value":["Sliding","Swinging","Folding"],
+                                            "conditions":[
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"ManuallyBy",
+                                                        "operator":"==",
+                                                        "value":["PushPad", "CardSwipe", "CodedEntry", "RemoteControli"]
+                                                    }
+                                                },
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"AutomaticallyBy",
+                                                        "operator":"==",
+                                                        "value":["MotionSensor", "OtherProximitySensor"]
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"WhenInstalled",
+                                            "operator":"==",
+                                            "value":true,
+                                            "conditions":[
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"AutomatcSensorsSet",
+                                                        "operator":"==",
+                                                        "value":"AutomaticallyOperateDoorsOpenEarlyEnough"
+                                                    }
+                                                },
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"StayOpenEarlyEnoughToPermitSafeEntryAndExit",
+                                                        "operator":"==",
+                                                        "value":true
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"SwingDoorsOpenedTowardsPeopleApproaching",
+                                            "operator":"==",
+                                            "value":true,
+                                            "conditions":[
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"VisualAndAudibleWarning",
+                                                        "operator":"==",
+                                                        "value":true
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"SafetyStopActivated",
+                                            "operator":"==",
+                                            "value":true,
+                                            "conditions":[
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"DoorsBeginToCloseWhenPersonIsPassingThrough",
+                                                        "operator":"==",
+                                                        "value":true
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"PowerFailureEvent",
+                                            "operator":"==",
+                                            "value":["RevertToManualControl", "FailSafeInOpenPosition"]
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"WhenOpenedProjectIntoAnyAdjacentAccessToute",
+                                            "operator":"==",
+                                            "value":false
+                                         }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                            "rule":"PoweredDoorManualControlLocated",
+                                            "operator":"==",
+                                            "value":"Between750mmAnd1000mmAboveFloorLevel",
+                                            "conditions":[
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"OperableWithClosedFist",
+                                                        "operator":"==",
+                                                        "value":true
+                                                    }
+                                                },
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"SetBackFromLeadingEdgeWhenFullyOpen",
+                                                        "operator":"==",
+                                                        "value":"1400mm"
+                                                    }
+                                                },
+                                                {"operator":"&&",
+                                                    "condition":{
+                                                        "rule":"ContrastVisuallyWithSeenBackground",
+                                                        "operator":"==",
+                                                        "value":"true"
+                                                    }
+                                                }
+                                            ]
+                                         }
+                                        }
+                                    ]    
+
+                                }
+                            ]
+                        }
+                    },
+                    "GlassDoorsAndGlazedScreens":{
+                        "Provisions":{
+                            "rules":[
+                                {
+                                    "rule":"SatisfyRequirementM1orM2",
+                                    "operator":"==",
+                                    "value":"true",
+                                    "conditions":[
+                                        {"operator":"&&",
+                                            "condition":{
+                                                "rule":"ComplyWith",
+                                                "operator":"==",
+                                                "value":"ApprovedDocumentKSection7"
+                                            }
+                                        }
+                                    ]
+                                 }
+                            ]
+
+                        }
+                    },
+                    "EntranceLobbies":{
+                        "Provisions":{
+                            "rules":[
+                                {
+                                    "rule":"SatisfyRequirementM1orM2",
+                                    "operator":"==",
+                                    "value":"true",
+                                    "conditions":[
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"LengthWithSingleSwingDoors",
+                                                "operator":"==",
+                                                "value":"Diagram10"
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"LengthWithSingleSwingDoors",
+                                                "operator":">=",
+                                                "value":"DP1+DP2+1570mm"
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"WidthExcludingProjectionIntoSpace",
+                                                "operator":">=",
+                                                "value":["1200mm","DL1+DL2+300mm"],
+                                                "conditions": [
+                                                    {"operator":"&&",
+                                                    "condition":{
+                                                       "rule":"SingleLeafDoorsAreUsed",
+                                                       "operator":"==",
+                                                       "value":true
+                                                   }
+                                               }]
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"WidthExcludingProjectionIntoSpace",
+                                                "operator":">=",
+                                                "value":"1800mm",
+                                                "conditions": [
+                                                    {"operator":"&&",
+                                                    "condition":{
+                                                       "rule":"DoubleLeafDoorsAreUsed",
+                                                       "operator":"==",
+                                                       "value":true
+                                                   }
+                                               }]
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"GlazingWithinLobbu",
+                                                "operator":"!=",
+                                                "value":"DistractingReflection"
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"FloorSurfaceMaterialsWitginLobby",
+                                                "operator":"!=",
+                                                "value":"ImpedeMovementOfWheelChair",
+                                                "conditions": [
+                                                    {"operator":"&&",
+                                                    "condition":{
+                                                       "rule":"ChangesInFloorMaterials",
+                                                       "operator":"!=",
+                                                       "value":"CreateAPotentialTripHarzard"
+                                                   }
+                                               }]
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"FloorSurfaceHelpRemoveRainWaterFrom",
+                                                "operator":"==",
+                                                "value":["Shoes","WheelChairs"]
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"MatLevelSurfaceLevelWithAdjacentFloorSurface",
+                                                "operator":"==",
+                                                "value":true,
+                                                "conditions": [
+                                                    {"operator":"&&",
+                                                    "condition":{
+                                                       "rule":"MatWellsProvided",
+                                                       "operator":"==",
+                                                       "value":true
+                                                   }
+                                               }]
+                                            }
+                                        },
+                                        {"operator":"&&",
+                                         "condition":{
+                                                "rule":"ColumnDuctsAndFullHeightElement",
+                                                "operator":"==",
+                                                "value":true,
+                                                "conditions": [
+                                                    {"operator":"&&",
+                                                    "condition":{
+                                                       "rule":"ProjectedIntoLobby",
+                                                       "operator":">=",
+                                                       "value":"100mm"
+                                                         }
+                                                     },
+                                                     {"operator":"&&",
+                                                    "condition":{
+                                                       "rule":"ProtectedByVisuallyContrastingGuardRail",
+                                                       "operator":">=",
+                                                       "value":true
+                                                         }
+                                                     }
+                                            ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "AccessIntoBuildingOtherThanDwellingsM1/M2":{
+                "Objectives":{
+                    "LevelApproachFromBoundaryOfSiteAndCarParking": {
+                        "Provisions":{
+                            "rules":[
+                                {
+                                    "rule": "LevelApproachSatifiesRequirementM1orM2",
+                                    "operator":"==",
+                                    "value": true,
+                                    "conditions":[
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"SurfaceWidth",
+                                                "operator":">=",
+                                                "value":"1.5m",
+                                                "conditions":[
+                                                    {
+                                                        "operator":"&&",
+                                                        "condition":{
+                                                            "rule":"FreeOfObstructionOfHeight",
+                                                            "operator":"==",
+                                                            "value":"2.1m"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"PassingPlacesWidth",
+                                                "operator":">=",
+                                                "value":"1.8m",
+                                                "conditions":[
+                                                    {
+                                                        "operator":"&&",
+                                                        "condition":{
+                                                            "rule":"PassingPlacesLength",
+                                                            "operator":"==",
+                                                            "value":"2m"
+                                                        }
+                                                    },
+                                                    {
+                                                        "operator":"&&",
+                                                        "condition":{
+                                                            "rule":"ProvidedWidthinSightOfEachOther",
+                                                            "operator":"==",
+                                                            "value":true
+                                                        }
+                                                    },
+                                                    {
+                                                        "operator":"&&",
+                                                        "condition":{
+                                                            "rule":"SpaceAtDistance",
+                                                            "operator":"<=",
+                                                            "value":"50m"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"GradientAlongLengthStep",
+                                                "operator":"<=",
+                                                "value":"1:60",
+                                                "conditions":[ 
+                                                    {
+                                                        "operator":"||",
+                                                        "condition":{
+                                                            "rule":"LessStepWithLevelLanding",
+                                                            "operator":"<",
+                                                            "value":"1:20",
+                                                            "conditions":[
+                                                                {
+                                                                    "operator":"&&",
+                                                                    "condition":{
+                                                                        "rule":"IntroducedForEach500mmRiceOfAcess",
+                                                                        "operator":"==",
+                                                                        "value":true
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                    
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"CrossfallGradientStepper",
+                                                "operator":"<=",
+                                                "value":"1:40"
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"SurfaceIs",
+                                                "operator":"==",
+                                                "value":["Firm","Durable","SlipResistant"],
+                                                "conditions":[
+                                                    {
+                                                        "operator":"&&",
+                                                        "condition":{
+                                                            "rule":"UndulationsUnder1mStraightEdgeForFormlessMaterial",
+                                                            "operator":"<=",
+                                                            "value":"3mm"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"DifferentMaterialsAlongAccessRoute",
+                                                "operator":"==",
+                                                "value":"FrictionalCharacteristics"
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"DifferenceInLevelOfJointsBetweenPavingUnits",
+                                                "operator":"<=",
+                                                "value":"5mm"
+                                            }
+                                        },
+                                        {"operator":"||",
+                                                     "condition":{
+                                                        "rule":"Reccessed",
+                                                        "operator":"==",
+                                                        "value": true,
+                                                        "conditions":[
+                                                            {"operator":"&&",
+                                                             "condition":{
+                                                                "rule":"Deeper",
+                                                                "operator":"<=",
+                                                                "value": "5mm"
+                                                             }
+                                                            },
+                                                            {"operator":"&&",
+                                                             "condition":{
+                                                                "rule":"Wider",
+                                                                "operator":"<=",
+                                                                "value": "10mm"
+                                                             }
+                                                            }
+                                                        ]   
+                                                     }
+                                        },
+                                        {"operator":"||",
+                                                     "condition":{
+                                                        "rule":"Unfilled",
+                                                        "operator":"==",
+                                                        "value": true,
+                                                        "conditions":[
+                                                            {"operator":"&&",
+                                                             "condition":{
+                                                                "rule":"Wider",
+                                                                "operator":"<=",
+                                                                "value": "5mm"
+                                                             }
+                                                            }
+                                                        ]   
+                                                     }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                               "rule":"RootToPrincipalEntrance",
+                                               "operator":"==",
+                                               "value": ["ClearlyIdentified","WellLit"]
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                               "rule":"ProvideSeparatePedestrianRoute",
+                                               "operator":"==",
+                                               "value": true
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                               "rule":"UnControlledCrossingPointAccrossVehicularRoute",
+                                               "operator":"==",
+                                               "value": true
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                               "rule":"IdentifiedByColouredBlister",
+                                               "operator":"==",
+                                               "value": true
+                                            }
+                                        }
+                                          
+                                    ]
+                                }
+                            ]                    
+                        }
+                    },
+                  "OnSiteCarParkingAndSettingDown":{
+                    "Provisions":{
+                        "rules":[
+                            {
+                                "rule":"ParkingBayDesignatedForDisabledPeople",
+                                "operator":">=",
+                                "value":1,
+                                "conditions":[
+                                    {
+                                        "operator":"&&",
+                                        "condition":{
+                                            "rule":"OnFirmLevelGroundAsCloseAsFeasible",
+                                            "operator":"==",
+                                            "value":"PrincipalBuildingEntrance"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "rule":"DisugnatedParkingBaysDimensionsAreShownIn",
+                                "operator":"=",
+                                "value":"Diagram2",
+                                "conditions":[
+                                    {
+                                        "operator":"&&",
+                                        "condition":{
+                                            "rule":"OnFirmLevelGroundAsCloseAsFeasible",
+                                            "operator":"==",
+                                            "value":"PrincipalBuildingEntrance",
+                                            "conditions":[
+                                                {
+                                                    "operator":"&&",
+                                                    "condition":{
+                                                        "rule":"AccessibilityZoneBetween",
+                                                        "operator":"==",
+                                                        "value":"1200mm"
+                                                    }
+                                                },
+                                                {
+                                                    "operator":"&&",
+                                                    "condition":{
+                                                        "rule":"SafetyZoneOnVehicleSideOfParkingBays",
+                                                        "operator":"==",
+                                                        "value":"1200mm"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "operator":"&&",
+                                "condition":{
+                                    "rule":"SurfaceOfAccessibilityZone",
+                                    "operator":"==",
+                                    "value":["Firm","Durable","SlipResistant"],
+                                    "conditions":[
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"UndulationsUnder1mStraightEdgeForFormlessMaterial",
+                                                "operator":"<=",
+                                                "value":"3mm"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "operator":"&&",
+                                "condition":{
+                                    "rule":"TicketMachinesWhereNecessaryFor",
+                                    "operator":"==",
+                                    "value":["WheelChairUser","ShortStaturePeople"],
+                                    "conditions":[
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"AdhacentToParkingBaysFor",
+                                                "operator":"<=",
+                                                "value":"DisabledPeople"
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"Control750mm_1200mm",
+                                                "operator":"==",
+                                                "value":"AboveTheGround"
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"Plinth",
+                                                "operator":"!=",
+                                                "value":"ProjectInFrontOfTheFaceMachineInAwayThatPreventsConvinentUse"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "operator":"&&",
+                                "condition":{
+                                    "rule":"ClearlySignPostedSettingDownPoint",
+                                    "operator":"==",
+                                    "value":"LocatedOnFirmAnLevelGround",
+                                    "conditions":[
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"AsCloseAsPraticableToEntrance",
+                                                "operator":"==",
+                                                "value":["Principal","Alternative"]
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"SurfaceLevel",
+                                                "operator":"==",
+                                                "value":"CarriageWay"
+                                            }
+                                        },
+                                        {
+                                            "operator":"&&",
+                                            "condition":{
+                                                "rule":"Plinth",
+                                                "operator":"!=",
+                                                "value":"ProjectInFrontOfTheFaceMachineInAwayThatPreventsConvinentUse"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                  },
+                  "RampedAccess":{
+                    "Provisions":{
+                        "rules":"RampedAccessSatisfyRequirementM1orM2",
+                        "operator":"==",
+                        "value":true,
+                        "conditions":[
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "ReadilyApparent",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            },
+                            {
+                                "operator": "||",
+                                "condition": {
+                                    "rule": "ApproachToRampClearlySignPosted",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "GradientOfRampFlightAndItsGoingBetweenLandings",
+                                    "operator": "==",
+                                    "value": "Table1AndDiagram3"
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "NoFlightHasAGoing",
+                                    "operator": ">",
+                                    "value": "10m"
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "NoFlightHasARise",
+                                    "operator": ">",
+                                    "value": "500m"
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "AlternativeMeansOfAccessForWheelChairUsers",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "SurfaceWidthBetweenWallsUpstandsOrKerbs",
+                                    "operator": ">=",
+                                    "value": "1.5m"
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "RampSurfaceIsSlipResistant",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "RampSurfaceColorContrastVisuallyWithLanding",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "SimilarFrictionalCharacteristicsOfRampAndLandingSurfaces",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "LandingAtFootAndHeadOfRamp",
+                                    "operator": ">=",
+                                    "value": "1.2m",
+                                    "conditions":[
+                                        {
+                                            "operator": "&&",
+                                            "condition": {
+                                                "rule": "ClearOfAnySwingORObstructions",
+                                                "operator": "==",
+                                                "value": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "IntermediateLandings",
+                                    "operator": ">=",
+                                    "value": "1.5m",
+                                    "conditions":[
+                                        {
+                                            "operator": "&&",
+                                            "condition": {
+                                                "rule": "ClearOfAnySwingORObstructions",
+                                                "operator": "==",
+                                                "value": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "IntermediateLandingsWidthAndLengthAsPassingPlaces",
+                                    "operator": ">=",
+                                    "value": [
+                                        "1800mm",
+                                        "1800mm"
+                                    ],
+                                    "conditions":[
+                                        {
+                                            "operator": "&&",
+                                            "condition": {
+                                                "rule": "WheelChairUserSeeFromOneEndOfRampToAnother",
+                                                "operator": "==",
+                                                "value": false
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "AllLandingsAreLevel",
+                                    "operator": "==",
+                                    "value": true,
+                                    "conditions":[
+                                        {
+                                            "operator": "&&",
+                                            "condition": {
+                                                "rule": "MaximumGradientAlongLength",
+                                                "operator": "==",
+                                                "value": "1:60"
+                                            }
+                                        },
+                                        {
+                                            "operator": "&&",
+                                            "condition": {
+                                                "rule": "MaximumCrossFallGradient",
+                                                "operator": "==",
+                                                "value": "1:40"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "HandRailOnBothSides",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "KerbOnOpenSideOfRampOrLandingVisuallyContrastingWithRampOrLanding",
+                                    "operator": ">=",
+                                    "value": "100mm"
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "ClearlySignPostedProvided",
+                                    "operator": "==",
+                                    "value": true,
+                                    "conditions":[
+                                        {
+                                            "operator": "&&",
+                                            "condition": {
+                                                "rule": "RampRise",
+                                                "operator": ">",
+                                                "value": "300mm"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                  },
+                  "SteppedAccess": {
+                    "Provisions": {
+                        "rules": [
+                            {
+                                "rule": "SteppedAccessSatifiesRequirementM1orM2",
+                                "operator": "==",
+                                "value": true,
+                                "conditions": [
+                                    {
+                                        "operator": "&&",
+                                        "condition": {
+                                            "rule": "ALevelLandingProvidedAtTopAndBottomOfFlight",
+                                            "operator": "==",
+                                            "value": true
+                                        }
+                                    },
+                                    {
+                                        "operator": "&&",
+                                        "condition": {
+                                            "rule": "TheUnobstructedLengthOfEachLanding",
+                                            "operator": ">=",
+                                            "value": "1200mm"
+                                        }
+                                    },
+                                    {
+                                        "operator": "&&",
+                                        "condition": {
+                                            "rule": "CorduroyHazardWarningSurfaceAtTopAndBottomLandingsOfSeriesOfFlights",
+                                            "operator": "==",
+                                            "value": true
+                                        }
+                                    },
+                                    {
+                                        "operator": "&&",
+                                        "condition": {
+                                            "rule": "CorduroyHazardWarningSurfaeOnIntermediatelanding",
+                                            "operator": "==",
+                                            "value": "400mmDeep"
+                                        }
+                                    }
+                               ,
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                "rule": "NoDoorSwingAcrossLanding",
+                                "operator": "==",
+                                "value": true
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                "rule": "FlightsSurfaceWidthBetweenEnclosingWallsStringOrUpstands",
+                                "operator": ">=",
+                                "value": "1.2m"
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                "rule": "NoSingleSteps",
+                                "operator": "==",
+                                "value": true
+                            }},
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                "rule": "TheRiseOfFlightBetweenLandingsContains",
+                                "operator": "<=",
+                                "value": [
+                                    "12RisersForAgoinLessThan350mm",
+                                    "18RisersForGoingOf350mmOrGreater"
+                                ]}
+                            },
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                "rule": "MadeApparentByPermanentlyContrastingMaterial",
+                                "operator": "==",
+                                "value": "55mmwide"
+                            }
+                            },
+                                {
+                                        "operator": "&&",
+                                        "condition": {
+                                            "rule": "TheProjectionsOfEachStep",
+                                            "operator": "<=",
+                                            "value": "25mm"
+                                        }
+                                    }
+                                
+                            ,
+                            {
+                                "operator": "&&",
+                                 "condition": {
+                                "rule": "RiseAndGoingOfEachStepIsConsistentThroughoutFlight",
+                                "operator": "==",
+                                "value": true
+                                }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 {"rule": "RiseOfEachStep",
+                                "operator": ">=",
+                                "value": "150mm"
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 {"rule": "RiseOfEachStep",
+                                "operator": "<=",
+                                "value": "170mm"
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 {"rule": "GoingOfEachStep",
+                                "operator": ">=",
+                                "value": "280mm"
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 {"rule": "GoingOfEachStep",
+                                "operator": "<=",
+                                "value": "425mm"
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 { "rule": "RisesAreNotOpen",
+                                "operator": "==",
+                                "value": true
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 {"rule": "ContinuousHandrailOnEachSideOfFlightAndLandings",
+                                "operator": "==",
+                                "value": true
+                            }
+                            },
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 { "rule": "AdditionalHandrailsDivideFlightIntoChannelsWidth",
+                                "operator": "=>",
+                                "value": "1m"
+                                 }
+                            },
+
+                            {
+                                "operator": "&&",
+                                "condition":
+                                 { "rule": "AdditionalHandrailsDivideFlightIntoChannels",
+                                "operator": "=>",
+                                "value": "1.8m"
+                                 }
+                            }
+                        ]
+                    }
+                        ]
+                }
+            }
+        }
+    }
+},
+{
+    "GeneralProvisionsForMeansOfEscape": {
+        "ProtectionOfEscapeRoutes": {
+            "FireResistanceOfEnclosures": {
+                "rules": [
+                    {
+                        "rule": "AllWallsPartitionsAndOtherEnclosuresNeedsToBeFireResisting",
+                        "operator": "==",
+                        "value": true,
+                        "conditions": [
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "MeetProvisionsInThisDocument",
+                                    "operator": "==",
+                                    "value": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "rule": "RoofsThatFormPartOfMeansOfEscape",
+                        "operator": "==",
+                        "value": true,
+                        "conditions": [
+                            {
+                                "operator": "&&",
+                                "condition": {
+                                    "rule": "AppropriatePerformanceGivenIn",
+                                    "operator": "==",
+                                    "value": "AppendixBofADB"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+  },
+  {
+    "GeneralProvisionsForMeansOfEscape": {
+        "MechanicalVentilationAndAirConditioningSystems": {
+            "rules": [
+                {
+                    "rule": "SystemOfMechanicalVentilationDesignedToEnsure",
+                    "operator": "==",
+                    "value": "FireBreakOutDuctworkNotAssistInTransferringFireAndSmokeThroughBuilding"
+                },
+                {
+                    "rule": "ExhaustPointsSitedNotJeopardizeBuilding",
+                    "operator": "==",
+                    "value": true
+                },
+                {
+                    "rule": "VentilationDuctsSupplyingOrExtractingAirDirectlyToOrFromProtectedEscapeRoute",
+                    "operator": "!=",
+                    "value": "ServeOtherAreas"
+                },
+                {
+                    "rule": "SeparateVentilationSystemProvidedForProtectedStairway",
+                    "operator": "==",
+                    "value": true
+                },
+                {
+                    "rule": "DuctworkSystemServesMoreThanOnePartOfSubDividedEscapeRoute",
+                    "operator": "==",
+                    "value": true
+                },
+                {
+                    "rule": "DuctworkEntersEachSectionOfEscapeRoute",
+                    "operator": "==",
+                    "value": true,
+                    "conditions":[{
+                      "operator":"&&",
+                      "condition":{
+                        "rule":"FireAndSmokeDamperProvided",
+                        "operator":"==",
+                        "value":true
+                      }
+                    }]
+                },
+                {
+                    "rule": "FireAndSmokeDamperOperatedBy",
+                    "operator": "==",
+                    "value": [
+                        "SmokeDetector",
+                        "SuitableFireDetectionSystem"
+                    ]
+                },
+                {
+                    "rule": "FireDampersCloseWhenSmokeDetected",
+                    "operator": "==",
+                    "value": true
+                },
+                {
+                    "rule": "SmokeDetectorsFittedInExtractDuctworkBeforePointOfSeparationOfRecirculatedAirAndDischargeToOpenAir",
+                    "operator": "==",
+                    "value": true,
+                    "conditions":[
+                      {"operator":"&&",
+                       "condition":{
+                        "rule": "SystemRecirculatesAir",
+                        "operator": "==",
+                        "value": true
+                    }}
+                    ]
+                },
+                {
+                    "rule": "SmokeDetectorsFittedBeforeFiltersOrOtherAirCleaningEquipment",
+                    "operator": "==",
+                    "value": true,
+                    "conditions":[
+                      {"operator":"&&",
+                       "condition":{
+                        "rule": "SystemRecirculatesAir",
+                        "operator": "==",
+                        "value": true
+                    }}
+                    ]
+                },
+                {
+                    "rule": "SystemShutDownImmediately",
+                    "operator": "==",
+                    "value": true,
+                    "conditions":[
+                      {"operator":"&&",
+                       "condition":{
+                        "rule": "SystemRecirculatesAir",
+                        "operator": "==",
+                        "value": true
+                    }}
+                    ]
+                },
+                {
+                    "rule": "MechanicalVentilationShutDown",
+                    "operator": "==",
+                    "value": [
+                        "AsSoonAsSmokeDetectedInDuct",
+                        "UponOperationOfFireAlarm"
+                    ]
+                },
+                {
+                    "rule": "NonDomesticKitchensAndPlantRoomsHaveSeparateAndIndependentExtractionSystems",
+                    "operator": "==",
+                    "value": true
+                },
+                {
+                    "rule": "ExtractedAirNotRecirculated",
+                    "operator": "==",
+                    "value": true
+                }
+            ]
+        }
+    }
+  }
+    ]
+}
+

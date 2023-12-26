@@ -1,0 +1,319 @@
+{
+    "InclusiveDesign": {
+      "OverallConsiderations": {
+        "DeafOrHardOfHearingPeople": {
+          "rules": [
+            {
+              "rule": "FlashingBeaconsRequiredIn",
+              "operator": "==",
+              "objectTypes": [
+                "toilets"
+              ],
+              "conditions": [
+                {
+                  "operator": "&&",
+                  "condition": {
+                    "rule": "AreasIdentifiedAsPlacesWherePeopleMayBeAlone",
+                    "operator": "==",
+                    "value": true
+                  }
+                }
+              ]
+            },
+            {
+              "rule": "!",
+              "operator": "!",
+              "value": "SuitableForAllPupils",
+              "conditions": [
+                {
+                  "operator": "&&",
+                  "condition": {
+                    "rule": "BuddySystemsOrVibratingPagers",
+                    "operator": "==",
+                    "value": "Considered"
+                  }
+                },
+                {
+                  "operator": "||",
+                  "condition": {
+                    "rule": "VibratingPagersLinkedToFireAlarm",
+                    "operator": "==",
+                    "value": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "ManagementOfEvacuation": {
+          "HorizontalCirculation": {
+            "Doors": {
+              "rules": [
+                {
+                  "rule": "UnobstructedSpaceOnPullSide",
+                  "operator": "==",
+                  "value": "300mm"
+                },
+                {
+                  "rule": "OpenDoorWithClosedFist",
+                  "operator": "==",
+                  "value": true
+                },
+                {
+                  "rule": "VisualContrastBetweenFurnitureAndDoor",
+                  "operator": "==",
+                  "value": true
+                },
+                {
+                  "rule": "VisualContrastBetweenDoorFrameAndSurroundingWall",
+                  "operator": "==",
+                  "value": true
+                },
+                {
+                  "rule": "ClearOpeningWidthMeetsRequirementsIn",
+                  "operator": "==",
+                  "value": "Table5"
+                },
+                {
+                  "rule": "EmergencyBreakGlassPanelsAndDoorReleasesMountedBetween",
+                  "operator": "IN",
+                  "values": [
+                    "1000mm",
+                    "1200mm"
+                  ],
+                  "conditions": [
+                    {
+                      "operator": "&&",
+                      "condition": {
+                        "rule": "AccessibleForDisabledPeople"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "rule": "VisionPanelsProvidedInDoorsAndSidePanelsWiderThan",
+                  "operator": "==",
+                  "value": "450mm",
+                  "conditions": [
+                    {
+                      "operator": "&&",
+                      "condition": {
+                        "rule": "ZoneOfVisibilityProvidedBetween",
+                        "operator": "==",
+                        "value": "500mm",
+                        "value2": "1500mm"
+                      }
+                    },
+                    {
+                      "operator": "&&",
+                      "condition": {
+                        "rule": "ZoneOfVisibilityInterruptedBetween",
+                        "operator": "==",
+                        "value": "800mm",
+                        "value2": "1150mm"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "DoorClosers": {
+              "rules": [
+                {
+                  "rule": "DoorClosersOnlyProvidedWhereEssential",
+                  "operator": "==",
+                  "value": true
+                },
+                {
+                  "rule": "OpeningForceAtLeadingEdgeOfDoorFrom0To30IsNotMoreThan",
+                  "operator": "<=",
+                  "value": "30N"
+                },
+                {
+                  "rule": "OpeningForceAtLeadingEdgeOfDoorFrom30To60IsNotMoreThan",
+                  "operator": "<=",
+                  "value": "22.5N"
+                },
+                {
+                  "rule": "AlternativeMethodsOfCreatingEasilyAccessibleRoutesShouldBeConsidered",
+                  "operator": "==",
+                  "value": true,
+                  "conditions": [
+                    {
+                      "operator": "||",
+                      "condition": {
+                        "rule": "HoldOpenDevices",
+                        "operator": "==",
+                        "value": true
+                      }
+                    },
+                    {
+                      "operator": "||",
+                      "condition": {
+                        "rule": "Automation",
+                        "operator": "==",
+                        "value": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "VerticalCirculation": {
+              "Stairs": {
+                "rules": [
+                  {
+                    "rule": "LevelLandingAtTopAndBottomOfSteps",
+                    "operator": "==",
+                    "value": true,
+                    "conditions": [
+                      {
+                        "operator": "&&",
+                        "condition": {
+                          "rule": "UnobstructedLengthOfNotLessThan",
+                          "operator": ">=",
+                          "value": "1200mm"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "rule": "NosingContrastsWithMainStepToDepthOf",
+                    "operator": "==",
+                    "value": "55mm",
+                    "conditions": [
+                      {
+                        "operator": "!",
+                        "condition": {
+                          "rule": "PreferableToHaveStepsWithoutNosings",
+                          "operator": "==",
+                          "value": true
+                        }
+                      },
+                      {
+                        "operator": "&&",
+                        "condition": {
+                          "rule": "NosingProjectsNoMoreThan",
+                          "operator": "<=",
+                          "value": "25mm"
+                        },
+                        "value2": "tread below"
+                      }
+                    ]
+                  },
+                  {
+                    "rule": "MaximumRiseOf",
+                    "operator": "<=",
+                    "value": "160mm"
+                  },
+                  {
+                    "rule": "MinimumGoingOf",
+                    "operator": ">=",
+                    "value": "280mm"
+                  },
+                  {
+                    "rule": "ContinuousHandrailToEachSideOfFlightAndLandings",
+                    "operator": "==",
+                    "value": true
+                  }
+                ]
+              }
+            }
+          },
+          "Refuges": {
+            "rules": [
+              {
+                "rule": "ProvidedWithinProtectedStairwayLobbyAtEachStorey",
+                "operator": "==",
+                "value": true
+              },
+              {
+                "rule": "EffectiveAndAccessibleCommunicationBetweenRefugeAndEvacuationOrganizers",
+                "operator": "==",
+                "value": true
+              },
+              {
+                "rule": "RefugesEnabledByEmergencyVoiceCommunicationSystemComplyingWith",
+                "operator": "==",
+                "value": "BS5839Part9",
+                "conditions": [
+                  {
+                    "operator": "&&",
+                    "condition": {
+                      "rule": "OutstationsLocatedInEachRefuge",
+                      "operator": "==",
+                      "value": true
+                    }
+                  },
+                  {
+                    "operator": "&&",
+                    "condition": {
+                      "rule": "IncomingStationLocatedInSameLocationAsMainFireAlarmPanel",
+                      "operator": "==",
+                      "value": true
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "LocatedToAllowEasyAccessToStairsAndOrEvacuationLifts"
+              },
+              {
+                "rule": "ProtectedFromSmokeAndFire",
+                "operator": "==",
+                "value": true
+              },
+              {
+                "rule": "SimpleAccessibleSignageIndicatingRefugeAndProvidingInstructions",
+                "operator": "==",
+                "value": true
+              },
+              {
+                "rule": "FoldDownChairProvidedInRefuge"
+              },
+              {
+                "rule": "RefugeTypeIsSatisfactory",
+                "operator": "IN",
+                "objectTypes": [
+                  "enclosure",
+                  "open air"
+                ],
+                "conditions": [
+                  {
+                    "condition": {
+                      "rule": "ProtectedOrRemoteFromFireRisk",
+                      "operator": "==",
+                      "value": true
+                    }
+                  },
+                  {
+                    "operator": "&&",
+                    "condition": {
+                      "rule": "OwnMeansOfEscape",
+                      "operator": "==",
+                      "value": true
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "!",
+                "operator": "!",
+                "value": "ReduceWidthOfEscapeRoute",
+                "conditions": [
+                  {
+                    "operator": "&&",
+                    "condition": {
+                      "rule": "ObstructFlowOfPeopleEscaping",
+                      "operator": "==",
+                      "value": false
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }

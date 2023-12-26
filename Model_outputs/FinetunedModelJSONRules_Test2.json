@@ -1,0 +1,112 @@
+{
+    "AccessToBuildingsOtherThanDwellingsM1/M2": {
+        "Objectives": {
+            "SteppedAccess": {
+                "Provisions": {
+                    "rules": [
+                        {
+                            "rule": "LevelLandingAtTopAndBottomOfEachFlight",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "UnobstructedLengthOfEachLanding",
+                            "operator": ">=",
+                            "value": "1200mm"
+                        },
+                        {
+                            "rule": "CorduroyHazardWarningSurfaceAtTopAndBottomLandingsOfSeriesOfFlights",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "CorduroyHazardWarningSurface400mmDeepOnIntermediateLanding",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "NoDoorsSwingAcrossLandings",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "FlightsSurfaceWidthBetweenEnclosingWallsStringsOrUpstands",
+                            "operator": ">=",
+                            "value": "1.2m"
+                        },
+                        {
+                            "rule": "NoSingleSteps",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "RiseOfFlightBetweenLandingsContainsNoMoreThan12RisersForGoingOfLessThan350mm",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "RiseOfFlightBetweenLandingsContainsNoMoreThan18RisersForGoingOf350mmOrGreater",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "AllNosingsAreMadeApparentByMeansOfPermanentlyContrastingMaterial55mmWideOnBothTreadAndRiser",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "ProjectionOfStepNosingOverTreadBelow",
+                            "operator": "!=",
+                            "value": "Avoided"
+                        },
+                        {
+                            "rule": "ProjectionOfStepNosingOverTreadBelow",
+                            "operator": "<=",
+                            "value": "25mm"
+                        },
+                        {
+                            "rule": "RiseAndGoingOfEachStepIsConsistentThroughoutFlight",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "RiseOfEachStep",
+                            "operator": ">=",
+                            "value": "150mm"
+                        },
+                        {
+                            "rule": "RiseOfEachStep",
+                            "operator": "<=",
+                            "value": "170mm"
+                        },
+                        {
+                            "rule": "GoingOfEachStep",
+                            "operator": ">=",
+                            "value": "280mm"
+                        },
+                        {
+                            "rule": "GoingOfEachStep",
+                            "operator": "<=",
+                            "value": "425mm"
+                        },
+                        {
+                            "rule": "RisesAreNotOpen",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "ContinuousHandrailOnEachSideOfFlightAndLandings",
+                            "operator": "==",
+                            "value": true
+                        },
+                        {
+                            "rule": "AdditionalHandrailsDivideFlightIntoChannelsNotLessThan1mWideAndNotMoreThan1.8mWide",
+                            "operator": "==",
+                            "value": true
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

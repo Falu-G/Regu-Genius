@@ -1,0 +1,55 @@
+{
+    "InclusiveDesign": {
+        "VerticalCirculation": {
+            "Stairs": {
+                "rules": [
+                    {
+                        "rule": "LevelLandingsAtTopAndBottom",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "UnobstructedLengthOfLanding",
+                        "operator": ">=",
+                        "value": "1200mm"
+                    },
+                    {
+                        "rule": "VisuallyContrastingNosing",
+                        "operator": ">=",
+                        "value": "55mm"
+                    },
+                    {
+                        "rule": "NosingProjectionOverTreadBelow",
+                        "operator": ">=",
+                        "value": "25mm"
+                    },
+                    {
+                        "rule": "MaximumRise",
+                        "operator": "<=",
+                        "value": "160mm"
+                    },
+                    {
+                        "rule": "MinimumGoing",
+                        "operator": ">=",
+                        "value": "280mm"
+                    },
+                    {
+                        "rule": "SuitableHandrailsToEachSide",
+                        "operator": ">=",
+                        "value": "1"
+                    },
+                    {
+                        "rule": "CarryDownProcedures",
+                        "operator": "==",
+                        "value": true
+                    },
+                    {
+                        "rule": "AccessibleEvacuationLift",
+                        "operator": "==",
+                        "value": true
+                    }
+                ]
+            }
+        }
+    }
+}
