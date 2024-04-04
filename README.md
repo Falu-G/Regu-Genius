@@ -1,13 +1,17 @@
 # Regu-Genius
 
 **Steps to recreate and test this model**
+Step1: Finetuning
 
+Head over to https://colab.research.google.com/drive/1YawxYi6rww8aVY3LcaGxbu9MRw-vX1M8?authuser=1#scrollTo=-4rzM1KEaNv- or RegGenisv2.ipynb
+
+Re-run from section __Dataset For Finetuning__ to __Creating Finetuning Job__ a finetuned model id will be generatd
 
 Step2: Testing
 
 # To Interact directly with the model, below is a sample function.
 
-**The generated model id sample => ft:gpt-3.5-turbo-0613:personal:regugen:8TyfLt5J**
+**The generated model id is required a sample is=> ft:gpt-3.5-turbo-0613:personal:regugen:8TyfLt5J**
 
 OPENAIKEY api key is required for every prompts
 
