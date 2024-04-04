@@ -28,7 +28,7 @@ def prompt_fm(NLT_Rules):
     return fm_res;
 ```
 
-**Where NLT_Rules is the extrated Natural Language Text from the HTML RASE tagged document  **
+**Where NLT_Rules is the extrated Natural Language Text from the HTML RASE tagged document**
 
 **Sample Preprocessing**
 
