@@ -6,7 +6,7 @@
 
 Head over to https://colab.research.google.com/drive/1YawxYi6rww8aVY3LcaGxbu9MRw-vX1M8?authuser=1#scrollTo=-4rzM1KEaNv- or RegGenisv2.ipynb
 
-Re-run from section __Dataset For Finetuning__ to __Creating Finetuning Job__ a finetuned model id will be generatd
+Re-run from section __Dataset For Finetuning__ to __Creating Finetuning Job__ , a finetuned model id will be generatd
 
 **Step2: Testing**
 
