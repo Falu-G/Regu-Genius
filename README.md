@@ -14,7 +14,7 @@ Re-run from section __Dataset For Finetuning__ to __Creating Finetuning Job__ , 
 
 **The generated model id is required a sample is=> ft:gpt-3.5-turbo-0613:personal:regugen:8TyfLt5J**
 
-OPENAIKEY api key is required for every prompts
+OPENAI **api key** is required for every prompts
 
 ``` python code
 def prompt_fm(NLT_Rules):
