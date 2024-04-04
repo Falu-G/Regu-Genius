@@ -33,7 +33,7 @@ def prompt_fm(NLT_Rules):
     return fm_res;
 ```
 
-**Where NLT_Rules is the extrated Natural Language Text from the HTML RASE tagged document**
+**Where NLT_Rules is the extracted Natural Language Text from the HTML RASE tagged document**
 
 **Sample Preprocessing**
 
@@ -102,5 +102,5 @@ def extractNLTRules(html_content) -> str:
     return output
 
 ```
-
+__NB: After further investigation, it was discovered that if NLT is sent directly to the model it still generalised well by responding with a reasonable JSON rule__
 
